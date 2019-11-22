@@ -6,6 +6,7 @@ const Header = props => {
     const [charText, setCharText] = useState('');
 
     const handleChanges = e => {
+        e.preventDefault();
         setCharText(e.target.value);
         console.log(charText)
     };
@@ -14,6 +15,7 @@ const Header = props => {
         e.preventDefault();
         props.getCharacterQuote(charText);
     }
+    
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -27,6 +29,9 @@ const Header = props => {
                 <button onClick={handleSubmit}>Get Character Quotes</button>         
             </form>
             <div>
+                {props.charLink.map((name, index) => (
+                    console.log(name),
+            <p onClick={() => props.getCharacterQuote(name.name)}key={index}>{name.name}</p>))}
                 {props.character.name}
             </div>
         </>
@@ -37,7 +42,8 @@ const mapStateToProps = state => {
     return {
         isLoading: state.isLoading,
         error: state.error,
-        character: state.character
+        character: state.character,
+        charLink: state.charLink
     }
 }
 export default connect(

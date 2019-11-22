@@ -2,6 +2,7 @@ import {
     CHARQUOTE_LOAD_START,
     CHAR_LOAD_SUCCESS,
     CHAR_LOAD_FAILURE,
+    CHAR_LINK,
     CHARQUOTE_LOAD_SUCCESS,
     CHARQUOTE_LOAD_FAILURE
 } from '../actions';
@@ -9,7 +10,8 @@ import {
 const initialState = {
     isLoading: false,
     error: '',
-    character: { name: '', quotes: []}
+    character: { name: '', quotes: []},
+    charLink: []
 };
 
 const reducer = (state = initialState, action) => {
@@ -33,6 +35,13 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isLoading: false
             };
+        case CHAR_LINK:
+            console.log(action.payload)
+            return {
+                ...state,
+                charLink: action.payload,
+                isLoading: false
+            }
         case CHARQUOTE_LOAD_SUCCESS:
                 console.log(action.payload)
             return {
