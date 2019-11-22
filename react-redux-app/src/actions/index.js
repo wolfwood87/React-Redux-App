@@ -14,7 +14,7 @@ export const getCharacterQuote = (name) => dispatch => {
         .then(res => {
             console.log(res.data.docs)
             let newChar = res.data.docs.filter(char => {
-                return char.name === name
+                return char.name.includes(name)
             })
             console.log(newChar);
             dispatch({
