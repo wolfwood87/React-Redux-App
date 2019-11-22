@@ -9,7 +9,7 @@ import {
 const initialState = {
     isLoading: false,
     error: '',
-    character: { name: '', quote: []}
+    character: { name: '', quotes: []}
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
         case CHARQUOTE_LOAD_START:
             return {
                 ...state,
-                isLoading: true;
+                isLoading: true
             };
         case CHAR_LOAD_SUCCESS:
             return {
@@ -34,11 +34,13 @@ const reducer = (state = initialState, action) => {
                 isLoading: false
             };
         case CHARQUOTE_LOAD_SUCCESS:
+                console.log(action.payload)
             return {
                 ...state,
                 character: {
                     ...state.character,
-                    quote: action.payload
+                    quotes: action.payload
+                    
                 }
             }
         case CHARQUOTE_LOAD_FAILURE:

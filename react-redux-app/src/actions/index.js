@@ -19,7 +19,7 @@ export const getCharacterQuote = (name) => dispatch => {
             console.log(newChar);
             dispatch({
                 type: CHAR_LOAD_SUCCESS,
-                payload: newChar
+                payload: newChar[0]
             })
             let charQuote = newChar[0]._id
             console.log(charQuote)

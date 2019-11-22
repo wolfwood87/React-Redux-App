@@ -5,7 +5,13 @@ import { getCharacterQuote } from '../actions';
 const Header = props => {
     return (
         <>
-            <button onClick={()=> props.getCharacterQuote('Gandalf')}>Gandalf Quotes</button>
+            <div>
+                <button onClick={()=> props.getCharacterQuote('Gandalf')}>Gandalf Quotes</button>
+            
+            </div>
+            <div>
+                {props.character.name}
+            </div>
         </>
     )
 }
