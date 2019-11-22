@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { getCharacterQuote } from '../actions';
+import { getCharacterQuote, getCharacterExact } from '../actions';
 
 const Header = props => {
     const [charText, setCharText] = useState('');
@@ -31,7 +31,7 @@ const Header = props => {
             <div>
                 {props.charLink.map((name, index) => (
                     console.log(name),
-            <p onClick={() => props.getCharacterQuote(name.name)}key={index}>{name.name}</p>))}
+            <p onClick={() => props.getCharacterExact(name.name)}key={index}>{name.name}</p>))}
                 {props.character.name}
             </div>
         </>
@@ -48,5 +48,5 @@ const mapStateToProps = state => {
 }
 export default connect(
     mapStateToProps,
-    { getCharacterQuote }
+    { getCharacterQuote, getCharacterExact }
 )(Header);
