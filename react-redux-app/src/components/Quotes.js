@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import Quote from './Quote';
-
+import styled from 'styled-components';
 const Quotes = props => {
+    const HeaderText = styled.h2`
+  font-family: "Tangerine"
+  `
     return (
         <div>
-            <h2>Quotes</h2>
+            <HeaderText>Quotes</HeaderText>
             {props.quotes.map((item, index) => (
                         <Quote key={index} quote={item} />
                     ))}

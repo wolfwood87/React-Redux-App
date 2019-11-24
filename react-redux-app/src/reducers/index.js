@@ -19,6 +19,7 @@ const reducer = (state = initialState, action) => {
         case CHARQUOTE_LOAD_START:
             return {
                 ...state,
+                error: '',
                 isLoading: true,
                 charLink: [],
                 character: { name: '', race: '', gender: '', hair: '', height: '', birth: '', death: '', quotes: []}
