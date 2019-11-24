@@ -4,6 +4,7 @@ import { getCharacterQuote, getCharacterExact } from '../actions';
 import styled from 'styled-components';
 
 const Header = props => {
+   
     const StyleButton = styled.button`
     margin-left: 2%;
     background-color: #634820;

@@ -15,8 +15,7 @@ export const getCharacterQuote = (name) => dispatch => {
         .then(res => {
             console.log(res.data.docs)
             let newChar = res.data.docs.filter(char => {
-                let newName = char.name.toLowerCase();
-                return newName.includes(name)
+                return char.name.toLowerCase().includes(name.toLowerCase())
             })
             console.log(newChar);
             if(newChar.length > 1){
