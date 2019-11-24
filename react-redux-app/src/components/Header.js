@@ -4,11 +4,6 @@ import { getCharacterQuote, getCharacterExact } from '../actions';
 import styled from 'styled-components';
 
 const Header = props => {
-    const StyleForm = styled.form`
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1%;
-    `
     const StyleButton = styled.button`
     margin-left: 2%;
     background-color: #634820;
@@ -57,7 +52,7 @@ const Header = props => {
     
     return (
         <>
-            <StyleForm onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <input
                     className="char-input"
                     type="text"
@@ -66,7 +61,7 @@ const Header = props => {
                     onChange={handleChanges}
                 />
                 <StyleButton onClick={handleSubmit}>Get Character Quotes</StyleButton>         
-            </StyleForm>
+            </form>
             {props.error && <div>{props.error}</div>}
             {props.isLoading ? (
                 <>
