@@ -6,7 +6,7 @@ import Quotes from './components/Quotes';
 function App() {
   return (
     <div className="App">
-      <h1>Lord of the Rings</h1>
+      <h1>Lord of the Rings Character Generator</h1>
       <Header />
       <Quotes />
     </div>

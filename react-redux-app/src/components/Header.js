@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { getCharacterQuote, getCharacterExact } from '../actions';
 
+
 const Header = props => {
     const [charText, setCharText] = useState('');
 
@@ -28,12 +29,23 @@ const Header = props => {
                 />
                 <button onClick={handleSubmit}>Get Character Quotes</button>         
             </form>
-            <div>
-                {props.charLink.map((name, index) => (
-                    console.log(name),
-            <p onClick={() => props.getCharacterExact(name.name)}key={index}>{name.name}</p>))}
-                {props.character.name}
-            </div>
+            {props.error && <div>{props.error}</div>}
+            {props.isLoading ? (
+                <div>Loading Character Data...</div>
+            ) : (<div>
+                    {props.charLink.map((name, index) => (
+                        console.log(name),
+                    <p onClick={() => props.getCharacterExact(name.name)}key={index}>{name.name}</p>))}
+                    <div className = "char-list">
+                        <p>{props.character.name}</p>
+                        <p>{props.character.race}</p>
+                        <p>{props.character.gender}</p>
+                        <p>{props.character.hair}</p>
+                        <p>{props.character.height}</p>
+                        <p>{props.character.birth}</p>
+                        <p>{props.character.death}</p>
+                    </div>
+                </div>)}
         </>
     )
 }

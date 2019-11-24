@@ -10,7 +10,7 @@ import {
 const initialState = {
     isLoading: false,
     error: '',
-    character: { name: '', quotes: []},
+    character: { name: '', race: '', gender: '', hair: '', height: '', birth: '', death: '', quotes: []},
     charLink: []
 };
 
@@ -21,14 +21,20 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isLoading: true,
                 charLink: [],
-                character: { name: '', quotes: []}
+                character: { name: '', race: '', gender: '', hair: '', height: '', birth: '', death: '', quotes: []}
             };
         case CHAR_LOAD_SUCCESS:
             return {
                 ...state,
                 character: {
                     ...state.character,
-                    name: action.payload.name
+                    name: 'Name: ' + action.payload.name,
+                    race: 'Race: ' + action.payload.race, 
+                    gender: 'Gender: ' + action.payload.gender, 
+                    hair: 'Hair: ' + action.payload.hair, 
+                    height: 'Height: ' + action.payload.height, 
+                    birth: 'Birth: ' + action.payload.birth, 
+                    death: 'Death: ' + action.payload.death
                 }
             }
         case CHAR_LOAD_FAILURE:
