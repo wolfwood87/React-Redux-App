@@ -36,6 +36,9 @@ const Header = props => {
     padding: 1%
     border: 2px solid black;
     `
+    const HeaderText = styled.h2`
+  font-family: "Tangerine"
+  `
     const InfoText = styled.p`
         
     `
@@ -66,12 +69,16 @@ const Header = props => {
             </StyleForm>
             {props.error && <div>{props.error}</div>}
             {props.isLoading ? (
+                <>
                 <div>Loading Character Data...</div>
+                <HeaderText>Profile</HeaderText>
+                </>
             ) : (<div>
                     {props.charLink.map((name, index) => (
                         console.log(name),
                     <CharLinks onClick={() => props.getCharacterExact(name.name)}key={index}>{name.name}</CharLinks>))}
-                    <Info className = "char-list">
+                    <HeaderText>Profile</HeaderText>
+                    {props.character.name && <Info className = "char-list">
                         <InfoText>{props.character.name}</InfoText>
                         <InfoText>{props.character.race}</InfoText>
                         <InfoText>{props.character.gender}</InfoText>
@@ -79,7 +86,7 @@ const Header = props => {
                         <InfoText>{props.character.height}</InfoText>
                         <InfoText>{props.character.birth}</InfoText>
                         <InfoText>{props.character.death}</InfoText>
-                    </Info>
+                    </Info>}
                 </div>)}
         </>
     )

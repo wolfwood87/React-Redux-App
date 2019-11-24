@@ -13,6 +13,7 @@ function App() {
     border-radius: 15px;
     border: 4px solid #443723;
     font-family: "Montserrat";
+    padding-bottom: 10%;
   `
   const HeaderText = styled.h1`
   font-family: "Tangerine"
